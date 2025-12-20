@@ -34,4 +34,10 @@
       - _/login_
       - etc
     - En versiones recientes agregaron la posibilidad de consultar _API'S_ y procesar formularios pero estas características son opcionales.
+- Zustand
+  - **_npm i zustand_**
+  - ## Múltiples Stores en Zustand
+    - Conforme tus _apps_ van creciendo o son más complejas, tu store también puede crecer.
+    - Existen 2 opciones para manejar múltiples _store_: crear diferentes _stores_ o dividirlos utilizando el _Slice Pattern_.
+    - _Slice Pattern_ es algo que también encuentras en _Redux Tollkit_ y es una forma de dividir tus _stores_ en pequeñas piezas y unirlas en un _store_ principal.
     - 
