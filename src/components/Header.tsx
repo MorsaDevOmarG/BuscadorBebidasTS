@@ -1,8 +1,13 @@
-import { useEffect, useMemo } from "react";
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAppStore } from "../stores/useAppStore";
 
 export default function Header() {
+  const [searchFilters, setSearchFilters] = useState({
+    ingredient: "",
+    category: ""
+  });
+
   // Nos ayuda a obtener la ruta actual donde estamos o donde se encuentra el usuario
   const { pathname } = useLocation();
   // console.log(location);
@@ -18,6 +23,13 @@ export default function Header() {
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setSearchFilters({
+      ...searchFilters,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <header className={isHome ? "bg-header bg-cover bg-center bg-no-repeat" : "bg-slate-800"}>
@@ -73,21 +85,25 @@ export default function Header() {
                 id="ingredient"
                 className="p-3 w-full rounded-lg focus:outline-none bg-white"
                 placeholder="Nombre o Ingrediente. Ej: Vodka, Tequila, Café"
+                onChange={handleChange}
+                value={searchFilters.ingredient}
               />
             </div>
 
             <div className="space-y-4">
               <label
-                htmlFor="ingredient"
+                htmlFor="category"
                 className="block text-white uppercase font-extrabold text-lg"
               >
                 Categoría
               </label>
 
               <select
-                name="ingredient"
-                id="ingredient"
+                name="category"
+                id="category"
                 className="p-3 w-full rounded-lg focus:outline-none bg-white"
+                onChange={handleChange}
+                value={searchFilters.category}
               >
                 <option value="">-- Selecciona --</option>
 
