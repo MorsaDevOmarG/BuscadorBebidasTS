@@ -1,6 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 export default function Header() {
+  // Nos ayuda a obtener la ruta actual donde estamos o donde se encuentra el usuario
+  const location = useLocation();
+  console.log(location);
+  console.log(location.pathname); // Nos devuelve la ruta actual
+
   return (
     <header className="bg-slate-800">
       <div className="mx-auto container px-5 py-16">
