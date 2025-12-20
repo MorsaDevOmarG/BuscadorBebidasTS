@@ -5,7 +5,7 @@ export default function Header() {
       <div className="mx-auto container px-5 py-16">
         <div className="flex justify-content-between items-center">
           <div>
-            <img src="" alt="" />
+            <img src="/logo.svg" alt="Logotipo" className="w-32" />
           </div>
 
           <nav>
