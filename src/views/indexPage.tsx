@@ -1,7 +1,7 @@
 import { useAppStore } from "../stores/useAppStore"
 
 export default function indexPage() {
-  useAppStore((store) => state.categories);
+  // useAppStore((store) => state.categories);
 
   return (
     <>

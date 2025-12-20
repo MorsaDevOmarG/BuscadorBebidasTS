@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useAppStore } from "../stores/useAppStore";
 
 export default function Header() {
   // Nos ayuda a obtener la ruta actual donde estamos o donde se encuentra el usuario
@@ -9,6 +10,12 @@ export default function Header() {
 
   const isHome = useMemo(() => pathname === "/", [pathname]);
   // console.log(isHome);
+
+  const fetchCategories = useAppStore((store) => store.fetchCategories);
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <header className={isHome ? "bg-header bg-cover bg-center bg-no-repeat" : "bg-slate-800"}>
