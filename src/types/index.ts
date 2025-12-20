@@ -1,4 +1,8 @@
-import type z from "zod";
-import type { CategoriesAPIResponseSchema } from "../utils/recipes-schema";
+import { z } from "zod";
+import {
+  CategoriesAPIResponseSchema,
+  SearchFilterSchme,
+} from "../utils/recipes-schema";
 
 export type Categories = z.infer<typeof CategoriesAPIResponseSchema>;
+export type SearchFilter = z.infer<typeof SearchFilterSchme>;
