@@ -8,10 +8,10 @@ export default function Header() {
   // console.log(location.pathname); // Nos devuelve la ruta actual
 
   const isHome = useMemo(() => pathname === "/", [pathname]);
-  console.log(isHome);
+  // console.log(isHome);
 
   return (
-    <header className="bg-slate-800">
+    <header className={isHome ? "bg-header bg-cover bg-center bg-no-repeat" : "bg-slate-800"}>
       <div className="mx-auto container px-5 py-16">
         <div className="flex justify-between items-center">
           <div>

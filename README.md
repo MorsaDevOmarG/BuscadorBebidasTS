@@ -9,6 +9,19 @@
 - Vite
 - TailwindCSS
   - **_npm i tailwindcss @tailwindcss/vite_**
+  - ### Notas
+    - Para configurar una IMG con las clases del _framework_, se realiza una configuración en el archivo:
+      - **tailwindcss.config.js**
+    - Sino tenemos ese archivo y tenemos la versión: ** > 3**, entonces debemos configurar en_
+      - **vite.config.ts**
+    - En este proyecto, por la versión, no se configuró en esa parte nada, se agrego la clase únicamente en el archivo:
+      - **index.css**
+    - ```
+      .bg-header {
+        background-image: url("/bg.jpg");
+      }
+    ```
+    - Y ya solo se manda a llamar la clase donde la requerimos.
 - React Router DOM
   - **_npm i react-router-dom_**
   - _React Router_ es una de las librerías más comunes a la hora de crear aplicaciones de múltiples páginas y navegación.
