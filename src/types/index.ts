@@ -1,0 +1,1 @@
+export type Categories = z.infer<typeof CategoriesAPIResponseSchema>;
