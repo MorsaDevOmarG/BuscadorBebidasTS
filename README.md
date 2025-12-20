@@ -8,4 +8,6 @@
 - TypeScript
 - Vite
 - React Router DOM
+- TailwindCSS
+  - **_npm i tailwindcss @tailwindcss/vite_**
 - 
