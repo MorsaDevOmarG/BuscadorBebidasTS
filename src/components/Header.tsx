@@ -12,6 +12,8 @@ export default function Header() {
   // console.log(isHome);
 
   const fetchCategories = useAppStore((store) => store.fetchCategories);
+  const categories = useAppStore((store) => store.categories);
+  console.log(categories);
 
   useEffect(() => {
     fetchCategories();
