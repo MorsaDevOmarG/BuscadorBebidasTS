@@ -40,4 +40,10 @@
     - Conforme tus _apps_ van creciendo o son más complejas, tu store también puede crecer.
     - Existen 2 opciones para manejar múltiples _store_: crear diferentes _stores_ o dividirlos utilizando el _Slice Pattern_.
     - _Slice Pattern_ es algo que también encuentras en _Redux Tollkit_ y es una forma de dividir tus _stores_ en pequeñas piezas y unirlas en un _store_ principal.
-    - 
+- API
+  - _https://www.thecocktaildb.com/_
+- Axios
+  - **_npm i axios_**
+- Zod
+  - **_npm i zod_**
+- 
