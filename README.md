@@ -46,4 +46,6 @@
   - **_npm i axios_**
 - Zod
   - **_npm i zod_**
-- 
+- Modales 
+  - **_npm i @headlessui/react_**
+  - _https://headlessui.com/_
