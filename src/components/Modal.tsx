@@ -1,12 +1,17 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { useAppStore } from "../stores/useAppStore";
 
 export default function Modal() {
-  const [modal, useModal] = useState(false);
+  // const [modal, useModal] = useState(false);
+
+  const modal = useAppStore((state) => state.modal);
+  const closeModal = useAppStore((state) => state.closeModal);
+
   return (
     <>
       <Transition appear show={modal} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => {}}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
