@@ -4,6 +4,7 @@ import { Recipe } from "../types";
 export type FavoritesSliceType = {
   favorites: Recipe[];
   handleClickFavorite: (recipe: Recipe) => void;
+  favoriteExists: (id: Recipe['idDrink']) => boolean;
 };
 
 export const createFavoritesSlice: StateCreator<FavoritesSliceType> = (
@@ -15,12 +16,13 @@ export const createFavoritesSlice: StateCreator<FavoritesSliceType> = (
     // console.log(recipe);
     // console.log(get().favorites);
 
-    if (
-      get().favorites.some((favorite) => favorite.idDrink === recipe.idDrink)
-    ) {
+    // if (get().favorites.some((favorite) => favorite.idDrink === recipe.idDrink)) {
+    if (get().favoriteExists(recipe.idDrink)) {
       // console.log('Si existe');
       set((state) => ({
-        favorites: state.favorites.filter(favorite => favorite.idDrink !== recipe.idDrink)
+        favorites: state.favorites.filter(
+          (favorite) => favorite.idDrink !== recipe.idDrink
+        ),
       }));
     } else {
       // console.log('No existe..');
@@ -34,4 +36,7 @@ export const createFavoritesSlice: StateCreator<FavoritesSliceType> = (
       }));
     }
   },
+  favoriteExists: (id) => {
+    return get().favorites.some(favorite => favorite.idDrink === id);
+  }
 });
