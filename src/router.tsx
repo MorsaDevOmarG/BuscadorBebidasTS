@@ -4,6 +4,7 @@ import IndexPage from './views/indexPage';
 import Layout from './layouts/Layout';
 import { lazy, Suspense } from 'react';
 
+// Esto ayuda a que las páginas no carguen al inicio, solo cuando se ingresa a ella...
 const FavoritesPage = lazy(() => import("./views/FavoritesPage"));
 
 export default function AppRouter() {
