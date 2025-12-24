@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+// import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useAppStore } from "../stores/useAppStore";
 import { Recipe } from "../types";
 
@@ -15,7 +16,7 @@ export default function Modal() {
   const renderIngredients = () => {
     // return <p>DEsde Render Ingredients</p>
 
-    const ingredients: JSX.Element[] = [];
+    const ingredients: React.JSX.Element[] = [];
 
     for (let i = 1; i <= 6; i++) {
       const ingredient = selectedRecipe[`strIngredient${i}` as keyof Recipe];
