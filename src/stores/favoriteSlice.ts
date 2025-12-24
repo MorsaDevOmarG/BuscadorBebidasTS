@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
 import { Recipe } from "../types";
 import { createRecipesSlice, RecipeSliceType } from "./recipeSlice";
+import { createNotificationSlice, NotificationSliceType } from "./notificationSlice";
 
 export type FavoritesSliceType = {
   favorites: Recipe[];
@@ -11,7 +12,7 @@ export type FavoritesSliceType = {
 
 // export const createFavoritesSlice: StateCreator<FavoritesSliceType> = (
 export const createFavoritesSlice: StateCreator<
-  FavoritesSliceType & RecipeSliceType,
+  FavoritesSliceType & RecipeSliceType & NotificationSliceType,
   [],
   [],
   FavoritesSliceType
@@ -29,6 +30,11 @@ export const createFavoritesSlice: StateCreator<
           (favorite) => favorite.idDrink !== recipe.idDrink
         ),
       }));
+
+      createNotificationSlice(set, get, api).showNotification({
+        text: "Se eliminó de favoritos",
+        error: false,
+      });
     } else {
       // console.log('No existe..');
 
@@ -39,6 +45,11 @@ export const createFavoritesSlice: StateCreator<
       set((state) => ({
         favorites: [...state.favorites, recipe],
       }));
+
+      createNotificationSlice(set, get, api).showNotification({
+        text: "Se agregó a favoritos",
+        error: false,
+      });
     }
 
     createRecipesSlice(set, get, api).closeModal();
@@ -51,13 +62,12 @@ export const createFavoritesSlice: StateCreator<
   },
 
   loadFromStorage: () => {
-    const storedFavorites = localStorage.getItem('favorites');
+    const storedFavorites = localStorage.getItem("favorites");
 
     if (storedFavorites) {
       set({
-        favorites: JSON.parse(storedFavorites)
-      })
+        favorites: JSON.parse(storedFavorites),
+      });
     }
-
   },
 });
