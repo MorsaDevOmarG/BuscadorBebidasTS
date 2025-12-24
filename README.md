@@ -49,3 +49,5 @@
 - Modales 
   - **_npm i @headlessui/react_**
   - _https://headlessui.com/_
+- ICONOS
+  - **_npm i @heroicons/react_**
