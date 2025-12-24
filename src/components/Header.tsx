@@ -5,7 +5,7 @@ import { useAppStore } from "../stores/useAppStore";
 export default function Header() {
   const [searchFilters, setSearchFilters] = useState({
     ingredient: "",
-    category: ""
+    category: "",
   });
 
   // Nos ayuda a obtener la ruta actual donde estamos o donde se encuentra el usuario
@@ -20,15 +20,18 @@ export default function Header() {
   const categories = useAppStore((store) => store.categories);
   // console.log(categories);
   const searchRecipes = useAppStore((store) => store.searchRecipes);
+  const showNotification = useAppStore((state) => state.showNotification);
 
   useEffect(() => {
     fetchCategories();
   }, []);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setSearchFilters({
       ...searchFilters,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -39,7 +42,13 @@ export default function Header() {
 
     // Validar
     if (Object.values(searchFilters).includes("")) {
-      alert("Todos los campos son obligatorios");
+      // alert("Todos los campos son obligatorios");
+
+      showNotification({
+        text: "Todos los campos son obligatorios",
+        error: true
+      });
+      
       return;
     }
 
@@ -48,7 +57,11 @@ export default function Header() {
   };
 
   return (
-    <header className={isHome ? "bg-header bg-cover bg-center bg-no-repeat" : "bg-slate-800"}>
+    <header
+      className={
+        isHome ? "bg-header bg-cover bg-center bg-no-repeat" : "bg-slate-800"
+      }
+    >
       <div className="mx-auto container px-5 py-16">
         <div className="flex justify-between items-center">
           <div>
@@ -85,7 +98,10 @@ export default function Header() {
         </div>
 
         {isHome && (
-          <form className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6" onSubmit={handleSubmit}>
+          <form
+            className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6"
+            onSubmit={handleSubmit}
+          >
             <div className="space-y-4">
               <label
                 htmlFor="ingredient"
@@ -124,14 +140,21 @@ export default function Header() {
                 <option value="">-- Selecciona --</option>
 
                 {categories.drinks.map((category) => (
-                  <option key={category.strCategory} value={category.strCategory}>
+                  <option
+                    key={category.strCategory}
+                    value={category.strCategory}
+                  >
                     {category.strCategory}
                   </option>
                 ))}
               </select>
             </div>
 
-            <input type="submit" value="Buscar Recetas" className="cursor-pointer bg-orange-800 hover:bg-orange-900 text-white font-extrabold w-full p-2 rounded-lg uppercase" />
+            <input
+              type="submit"
+              value="Buscar Recetas"
+              className="cursor-pointer bg-orange-800 hover:bg-orange-900 text-white font-extrabold w-full p-2 rounded-lg uppercase"
+            />
           </form>
         )}
       </div>
