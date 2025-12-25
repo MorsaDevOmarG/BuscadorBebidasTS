@@ -62,4 +62,8 @@
       - aquí movelos la barra para que nos salgan los gratis
     - Después de lado derecho, donde esta el icono del usuario, presionamos y nos saldrá un menú, ahí elegimos:
       - **Keys**
-    - 
+  - Para configurar el uso de la misma, entramos a:
+    - Documents
+      - API Reference
+      - Vercel AI SDK
+        - **_npm i @openrouter/ai-sdk-provider_**
