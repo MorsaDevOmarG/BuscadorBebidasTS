@@ -4,6 +4,7 @@ export default function GenerateAI() {
   const showNotification = useAppStore(state => state.showNotification);
   const generateRecipe = useAppStore(state => state.generateRecipe);
   const recipe = useAppStore((state) => state.recipe);
+  const isGenerating = useAppStore((state) => state.isGenerating);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,10 +30,7 @@ export default function GenerateAI() {
       <h1 className="text-6xl font-extrabold">Generar Receta con IA</h1>
 
       <div className="max-w-4xl mx-auto">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col space-y-3 py-10"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-3 py-10">
           <div className="relative">
             <input
               name="prompt"
@@ -43,7 +41,10 @@ export default function GenerateAI() {
             <button
               type="submit"
               aria-label="Enviar"
-              className={`cursor-pointer absolute top-1/2 right-5 transform -translate-x-1/2 -translate-y-1/2`}
+              className={`absolute top-1/2 right-5 transform -translate-x-1/2 -translate-y-1/2 ${
+                isGenerating ? "cursor-default opacity-50" : "cursor-pointer "
+              }`}
+              disabled={isGenerating}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +64,11 @@ export default function GenerateAI() {
           </div>
         </form>
 
-        <div className="py-10 whitespace-pre-wrap">
-          {recipe}
-        </div>
+        {isGenerating && (
+          <p className="text-center animate-blink">Generando...</p>
+        )}
+
+        <div className="py-10 whitespace-pre-wrap">{recipe}</div>
       </div>
     </>
   );

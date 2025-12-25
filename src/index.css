@@ -3,3 +3,18 @@
 .bg-header {
   background-image: url("/bg.jpg");
 }
+
+@theme {
+  --animate-blink: blink 1s ease-in-out infinite;
+  @keyframes blink {
+    0%,
+    100% {
+      /* transform: rotate(-3deg); */
+      opacity: 1
+    }
+    50% {
+      /* transform: rotate(3deg); */
+      opacity: 0.5
+    }
+  }
+}
