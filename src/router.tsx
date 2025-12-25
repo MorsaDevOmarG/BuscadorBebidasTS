@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import FavoritesPage from './views/FavoritesPage';
 import Layout from "./layouts/Layout";
 import { lazy, Suspense } from "react";
+import GenerateAI from "./views/GenerateAI";
 
 // Esto ayuda a que las páginas no carguen al inicio, solo cuando se ingresa a ella...
 const FavoritesPage = lazy(() => import("./views/FavoritesPage"));
@@ -34,6 +35,8 @@ export default function AppRouter() {
               </Suspense>
             }
           />
+
+          <Route path="/generate" element={<GenerateAI />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -52,4 +52,12 @@
 - ICONOS
   - **_npm i @heroicons/react_**
 - IA
-  - 
+  - _https://openrouter.ai_
+  - Debemos crear una cuenta.
+  - La ruta es:
+    - Models
+    - Prompt pricing
+      - aquí movelos la barra para que nos salgan los gratis
+    - Después de lado derecho, donde esta el icono del usuario, presionamos y nos saldrá un menú, ahí elegimos:
+      - **Keys**
+    
