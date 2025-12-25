@@ -62,8 +62,11 @@
       - aquí movelos la barra para que nos salgan los gratis
     - Después de lado derecho, donde esta el icono del usuario, presionamos y nos saldrá un menú, ahí elegimos:
       - **Keys**
+    - Generamos la _API KEY_ y copiamos el _API KEY_
   - Para configurar el uso de la misma, entramos a:
     - Documents
       - API Reference
       - Vercel AI SDK
         - **_npm i @openrouter/ai-sdk-provider_**
+        - **_npm i ai_**
+  - 
