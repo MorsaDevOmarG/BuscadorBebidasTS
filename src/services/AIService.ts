@@ -11,6 +11,8 @@ export default {
       prompt
     });
 
-    console.log(result);
+    // console.log(result);
+
+    return result.textStream;
   }
 };

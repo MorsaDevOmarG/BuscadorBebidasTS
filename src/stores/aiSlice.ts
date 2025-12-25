@@ -6,10 +6,21 @@ export type AISlice = {
   generateRecipe: (prompt: string) => Promise<void>;
 };
 
-export const createAISlice: StateCreator<AISlice, [], [], AISlice> = () => ({
+export const createAISlice: StateCreator<AISlice, [], [], AISlice> = (set) => ({
   recipe: '',
+
   generateRecipe: async (prompt) => {
     // console.log(prompt);
-    await AIService.generateRecipe(prompt);
-  }
+    const data = await AIService.generateRecipe(prompt);
+
+    for await (const textPart of data) {
+      // console.log(textPart);
+
+      set((state => ({
+        recipe: state.recipe + textPart
+      })));
+    }
+  },
+
+  
 });
