@@ -8,7 +8,9 @@ export default {
 
     const result = streamText({
       model: openrouter("meta-llama/llama-3.3-70b-instruct:free"),
-      prompt
+      prompt,
+      // Controlar el comportamiento de la IA
+      system: 'Eres un experto en el tema'
     });
 
     // console.log(result);
