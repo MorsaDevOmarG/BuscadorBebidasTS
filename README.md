@@ -12,7 +12,7 @@
   - ### Notas
     - Para configurar una IMG con las clases del _framework_, se realiza una configuración en el archivo:
       - **tailwindcss.config.js**
-    - Sino tenemos ese archivo y tenemos la versión: ** > 3**, entonces debemos configurar en_
+    - Sino tenemos ese archivo y tenemos la versión: ** > 3**, entonces debemos configurar en\_
       - **vite.config.ts**
     - En este proyecto, por la versión, no se configuró en esa parte nada, se agrego la clase únicamente en el archivo:
       - **index.css**
@@ -20,8 +20,10 @@
       .bg-header {
         background-image: url("/bg.jpg");
       }
+      ```
     ```
     - Y ya solo se manda a llamar la clase donde la requerimos.
+    ```
 - React Router DOM
   - **_npm i react-router-dom_**
   - _React Router_ es una de las librerías más comunes a la hora de crear aplicaciones de múltiples páginas y navegación.
@@ -46,7 +48,7 @@
   - **_npm i axios_**
 - Zod
   - **_npm i zod_**
-- Modales 
+- Modales
   - **_npm i @headlessui/react_**
   - _https://headlessui.com/_
 - ICONOS
@@ -60,4 +62,4 @@
       - aquí movelos la barra para que nos salgan los gratis
     - Después de lado derecho, donde esta el icono del usuario, presionamos y nos saldrá un menú, ahí elegimos:
       - **Keys**
-    
+    - 
