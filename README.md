@@ -1,4 +1,4 @@
-# Proyecto: Buscador de Bebidas y Recetas
+# Proyecto: Buscador de Bebidas y Recetas con IA
 
 - **_npm i create vite@latest_**
 
@@ -51,3 +51,5 @@
   - _https://headlessui.com/_
 - ICONOS
   - **_npm i @heroicons/react_**
+- IA
+  - 
